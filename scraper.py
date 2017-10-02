@@ -41,11 +41,7 @@ for source_url in source_urls_list:
     res = requests.get(source_url)
 
     #check if any of the triggers appear in scraped_data
-    #using list comprehension. functionally identical to below
-    #
-    #for trigger in triggers:
-    #   if trigger in scrapped_data:
-    #       matching.append(trigger)
+    #using list comprehension. 
     matching = [trigger for trigger in triggers if trigger in res.text]
     if matching:
         print((source_url, matching))
